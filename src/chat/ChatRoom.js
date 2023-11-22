@@ -16,7 +16,6 @@ const ChatRoom = ({ auth, firestore }) => {
             return;
 
         }
-        console.log(auth.currentUser)
         var { uid, photoURL, displayName } = auth.currentUser;
         if (auth.currentUser.displayName === null) {
             displayName = "Guest"
