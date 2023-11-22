@@ -33,9 +33,7 @@ const ChatRoom = ({ auth, firestore }) => {
         setMessageFormValue('');
     }
   
-    useEffect(() => {
-    dummy.current.scrollIntoView( { behavior: 'smooth'})
-    },[dummy.current])  
+  
     
     
     const q = query(messagesReference, orderBy('createdAt', "desc"), limit(50))
