@@ -28,7 +28,7 @@ const ChatRoom = ({ auth, firestore }) => {
             displayName
         })
         setTimeout(() => {
-            dummy.current.scrollIntoView({ behavior: 'smooth' });
+            dummy.current.scrollIntoView({ behavior: 'smooth' ,block: "nearest"});
 		}, 200)
         setMessageFormValue('');
     }
