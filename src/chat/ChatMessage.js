@@ -15,7 +15,7 @@ const ChatMessage = ({ message }) => {
             <div class="ml-3 flex flex-col"><div class="flex flex-row items-end ">
                 {displayName &&
                     <p class="font-semibold relative  mr-3 text-[11px]">{displayName}</p>}
-                <span class="font-thin relative text-[8px] mr-1" >{dateToDayString(secondsToDate(createdAt.seconds))}</span><span class="font-thin relative text-[8px] ">{dateToTimeString(secondsToDate(createdAt.seconds))}</span>
+                <span class="font-normal relative text-[8px] mr-1" >{dateToDayString(secondsToDate(createdAt.seconds))}</span><span class="font-normal relative text-[8px] ">{dateToTimeString(secondsToDate(createdAt.seconds))}</span>
             </div>
                 <span class="font-light relative">{text}</span></div> </div>);
     }

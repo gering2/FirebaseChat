@@ -1,7 +1,7 @@
 import ChatMessage from './ChatMessage';
 import firebase from 'firebase/compat/app';
 import { useCollectionData } from 'react-firebase-hooks/firestore'
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { uuidv4 } from '../tools/uuid';
 import { doc, setDoc, collection, orderBy, query, limit, onSnapshot } from 'firebase/firestore';
 
@@ -27,16 +27,13 @@ const ChatRoom = ({ auth, firestore }) => {
             photoURL,
             displayName
         })
-
-        setMessageFormValue('');
-
-    }
-
-    onSnapshot(collection(firestore, "messages"), () => {
-        if (dummy.current) {
+        setTimeout(() => {
             dummy.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
+		}, 200)
+        setMessageFormValue('');
+    }
+  
+ 
     const q = query(messagesReference, orderBy('createdAt', "desc"), limit(50))
     const [messages] = useCollectionData(q, { idField: 'id' })
 
