@@ -6,7 +6,6 @@ import { UserOutlined } from "@ant-design/icons"
 const ChatMessage = ({ message }) => {
 
     const { text, uid, createdAt, photoURL, displayName } = message
-    console.log(createdAt)
     try {
 
 
