@@ -27,18 +27,20 @@ const ChatRoom = ({ auth, firestore }) => {
             photoURL,
             displayName
         })
+        setTimeout(() => {
             dummy.current.scrollIntoView(   { behavior: 'smooth'});
-		
+		}, 200)
         setMessageFormValue('');
     }
-
+  
+    
     const q = query(messagesReference, orderBy('createdAt', "desc"), limit(50))
     const [messages] = useCollectionData(q, { idField: 'id' })
     return (
         <div class="flex flex-col  w-full bg-neutral-300 max-h-full mr-1 ">
             <div class=" flex flex-col justify-stretch overflow-auto mt-4">
-                {messages && messages.reverse().map((message) => {
-                    return <ChatMessage displayName={message.displayName} key={uuidv4()} message={message} />
+                {messages && messages.toReversed().map((message) => {
+                    return <ChatMessage displayName={message.displayName} key={message.uid} message={message} />
                 })}
                 <div ref={dummy}></div>
 
