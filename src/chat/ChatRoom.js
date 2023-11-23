@@ -28,12 +28,16 @@ const ChatRoom = ({ auth, firestore }) => {
             displayName
         })
         setTimeout(() => {
-            dummy.current.scrollIntoView(   { behavior: 'smooth'});
-		}, 200)
+            dummy.current.scrollIntoView({ behavior: 'smooth' });
+        }, 200)
         setMessageFormValue('');
     }
-  
-    
+
+    useEffect(() => {
+       //scroll into view once mounted
+            dummy.current.scrollIntoView({ behavior: 'smooth' });
+        
+    }, [dummy.current])
     const q = query(messagesReference, orderBy('createdAt', "desc"), limit(50))
     const [messages] = useCollectionData(q, { idField: 'id' })
     return (
