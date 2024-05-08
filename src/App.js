@@ -20,7 +20,8 @@ function App() {
       <div class="bg-dark-900"><ActiveUsers firestore={db}></ActiveUsers></div></div> :
       <div class=" flex flex-col items-center text-dark-200 h-full w-full bg-dark-900  justify-center">
         <p class="text-5xl   italic"><span class="text-blue-gray-300">Sea</span>Chat</p>
-        <SignIn firestore={db} provider={provider} auth={auth} /></div>
+        <SignIn firestore={db} provider={provider} auth={auth} />
+      </div>
     }  </>)
 }
 
