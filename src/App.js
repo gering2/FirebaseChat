@@ -12,13 +12,15 @@ import ActiveUsers from './panels/ActiveUsers'
 function App() {
   const [user] = useAuthState(auth);
   return (<>
-    {user ? <div class="flex text-dark-200 h-full w-full  bg-dark-900">
+    {user ? <div class="flex  text-dark-200 h-full w-full  bg-dark-900">
 
       <div class="bg-dark-900 basis-[10%] p-3"><SettingsPanel auth={auth}></SettingsPanel>
       </div>
       <div class="bg-dark-800 basis-[80%] "><ChatRoom firestore={db} auth={auth} /></div>
       <div class="bg-dark-900"><ActiveUsers firestore={db}></ActiveUsers></div></div> :
-      <div class=" flex text-dark-200 h-full w-full bg-dark-900  justify-center"><SignIn firestore={db} provider={provider} auth={auth} /></div>
+      <div class=" flex flex-col items-center text-dark-200 h-full w-full bg-dark-900  justify-center">
+        <p class="text-5xl   italic"><span class="text-blue-gray-300">Sea</span>Chat</p>
+        <SignIn firestore={db} provider={provider} auth={auth} /></div>
     }  </>)
 }
 
